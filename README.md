@@ -8,7 +8,7 @@ chmod u+x setup.sh run.py && sudo ./install.sh
 ```
 
 
-#To Run 
+# To Run 
 ```sh
 sudo python3 main.py rule_file.txt
 ```
