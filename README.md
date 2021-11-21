@@ -12,7 +12,8 @@ myrules.txt could be your own file of rules
 ```sh
 sudo python3 Run.py myrules.txt
 ```
-
+      # OR
+      
 ```sh
 sudo python3 Run.py myrules.txt >> (output file).txt
 ```
