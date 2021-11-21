@@ -19,3 +19,4 @@ def is_matched(_packet, _rules):
 
 
 sniff(prn=lambda x: is_matched(x, rules), filter="tcp or udp")
+# sniff(prn=lambda x: x.display(), filter="tcp or udp")
