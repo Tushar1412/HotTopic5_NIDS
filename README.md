@@ -17,3 +17,9 @@ sudo python3 Run.py myrules.txt
 ```sh
 sudo python3 Run.py myrules.txt >> (output file).txt
 ```
+```sh
+#Rules format
+
+alert udp any any -> any any (tos:_;msg:"";flags:_;offset:_;content:_;seq:_;ack:_;)
+
+```
