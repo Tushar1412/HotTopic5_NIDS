@@ -4,7 +4,6 @@ class RuleMaker:
     def __init__(self, file_path):
         self.rules = []
 
-        # Read rules from the specified file
         with open(file_path, 'r') as f:
             for line in f:
                 stripped_line = line.strip()
@@ -12,9 +11,6 @@ class RuleMaker:
                     self.rules.append(Rule(stripped_line))
 
     def get_rules(self):
-        """
-        Returns the list of rules created by the RuleMaker.
-        """
         return self.rules
 
 # Example usage:
