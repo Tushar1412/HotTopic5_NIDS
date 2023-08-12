@@ -1,3 +1,4 @@
+
 #!/usr/bin/python3
 import sys
 from scapy.all import *
@@ -26,8 +27,15 @@ def is_matched(_packet, _rules):
             return rule.get_formatted(_packet)
     return empty_rule.get_formatted(_packet)
 
+def is_nmap_scan(packet):
+    return packet.haslayer(TCP) and (packet[TCP].flags == 2 or packet[TCP].flags == 18)
+
 def sniff_packets(rules, empty_rule):
-    sniff(prn=lambda x: print(is_matched(x, rules)), filter="tcp or udp")
+    sniff(filter="tcp", prn=lambda x: process_packet(x, rules, empty_rule))
+
+def process_packet(packet, rules, empty_rule):
+    if is_nmap_scan(packet):
+        print(is_matched(packet, rules))
 
 if __name__ == "__main__":
     main()
