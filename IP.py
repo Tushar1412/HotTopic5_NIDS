@@ -9,10 +9,7 @@ class MyIPNetwork:
             self.ipn = IPN(text)
 
     def __repr__(self):
-        if self.any:
-            return "Any IP Address"
-        else:
-            return "IP Range: " + str(self.ipn)
+        return "Any IP Address" if self.any else f"IP Range: {self.ipn}"
 
     def match(self, ip):
         return self.any or ip in self.ipn
