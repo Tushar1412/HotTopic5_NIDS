@@ -1,7 +1,6 @@
 from netaddr import IPNetwork as IPN
 
-
-class IPNetwork:
+class MyIPNetwork:
     def __init__(self, text):
         if text == "any":
             self.any = True
@@ -11,9 +10,19 @@ class IPNetwork:
 
     def __repr__(self):
         if self.any:
-            return "IP of any"
+            return "Any IP Address"
         else:
-            return "IP of "+str(self.ipn)
+            return "IP Range: " + str(self.ipn)
 
     def match(self, ip):
         return self.any or ip in self.ipn
+
+# Example usage:
+if __name__ == "__main__":
+    input_text = input("Enter 'any' or an IP range: ")
+    user_ip = input("Enter an IP address to check: ")
+
+    ip_network = MyIPNetwork(input_text)
+    is_match = ip_network.match(user_ip)
+
+    print(f"The provided IP {user_ip} matches the criteria: {is_match}")
